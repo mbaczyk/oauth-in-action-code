@@ -13,3 +13,30 @@ OAuth 2 in Action teaches you practical use and deployment of this protocol from
 ## About the authors
 
 Justin Richer is a systems architect, software engineer, standards editor, and service designer working as an independent consultant. [Antonio Sanso](http://blog.intothesymmetry.com/) works as Security Software Engineer, he is a vulnerability security researcher and an active open source contributor.
+
+## Runtime environment
+You can use virtual machine provisioned by Vagrant in order to work with examples attached to this book.
+
+Environment is setup using Vagrant and VirtualBox applications. So, please be sure that you have both applications installed:
+  - [VirtualBox](https://www.virtualbox.org/wiki/Downloads)  
+  - [Vagrant](https://www.vagrantup.com/downloads.html)
+
+This environment is built on CentOS7 image.  
+To run environment type:  
+`vagrant up`
+
+After this you can connect to environment:  
+`vagrant ssh`  
+And run first exercise:
+```
+cd /vagrant/exercises/ap-A-ex-0
+npm install
+node client.js
+node protectedResource.js
+node authorizationServer.js
+```
+
+After this you should be able to connect to services from host machine:
+  - localhost:9000
+  - localhost:9001
+  - localhost:9002
