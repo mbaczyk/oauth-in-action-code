@@ -40,10 +40,9 @@ app.get('/', function(req, res) {
 
 app.use('/', express.static('files/authorizationServer'));
 
-var server = app.listen(9001, 'localhost', function () {
+var server = app.listen(9001, '0.0.0.0', function () {
   var host = server.address().address;
   var port = server.address().port;
 
   console.log('OAuth Authorization Server is listening at http://%s:%s', host, port);
 });
- 

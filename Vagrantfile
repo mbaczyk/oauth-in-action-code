@@ -13,7 +13,7 @@ Vagrant.configure("2") do |config|
   # Every Vagrant development environment requires a box. You can search for
   # boxes at https://vagrantcloud.com/search.
   config.vm.box = "centos/7"
-  #config.vm.box_version = "1901.01"
+  #config.vm.box_version = "1902.01"
   config.vm.provision :shell, :path => "bootstrap.sh", privileged: false
 
   config.vm.provider :virtualbox do |vb|
@@ -21,6 +21,9 @@ Vagrant.configure("2") do |config|
     vb.memory = "8192"
     vb.cpus = "2"
   end
+
+  # force Vagrant to use rsync
+  config.vm.synced_folder ".", "/vagrant", type: "rsync"
 
   config.vm.network "forwarded_port", guest: 22, host: 2222, id: "ssh"
   config.vm.network "forwarded_port", guest: 8080, host: 8080, id: "www"

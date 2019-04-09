@@ -25,6 +25,9 @@ This environment is built on CentOS7 image.
 To run environment type:  
 `vagrant up`
 
+To enable automatic source code folder synchronisation run:  
+`vagrant rsync-auto`
+
 After this you can connect to environment:  
 `vagrant ssh`  
 And run first exercise:
