@@ -33,11 +33,11 @@ var getAccessToken = function(req, res, next) {
 	} else if (req.query && req.query.access_token) {
 		inToken = req.query.access_token
 	}
-	
+
 	console.log('Incoming token: %s', inToken);
 	nosql.one(function(token) {
 		if (token.access_token == inToken) {
-			return token;	
+			return token;
 		}
 	}, function(err, token) {
 		if (token) {
@@ -59,13 +59,12 @@ app.post("/resource", cors(), getAccessToken, function(req, res){
 	} else {
 		res.status(401).end();
 	}
-	
+
 });
 
-var server = app.listen(9002, 'localhost', function () {
+var server = app.listen(9002, '0.0.0.0', function () {
   var host = server.address().address;
   var port = server.address().port;
 
   console.log('OAuth Resource Server is listening at http://%s:%s', host, port);
 });
- 
